@@ -1,0 +1,82 @@
+﻿@model IEnumerable<web_trip.Models.wpt>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table>
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.wpt_id)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.wpt_name)
+            <p>Название объекта</p>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.wpt_description)*@
+            <p>Описание</p>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.wpt_date_creation)*@
+            <p>Дата</p>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.wpt_id)
+        </td>*@
+
+        <td>
+            @Html.DisplayFor(modelItem => item.wpt_name)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.wpt_description)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.wpt_date_creation)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.wpt_coordinate)
+        </th>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })   
+        </td>
+    </tr>
+}
+</table>
+
+@*Выводим карту*@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+<h2>Ваше местоположение</h2>
+<div id="map_canvas" style="width:400px; height:400px"></div>
+@*<p>Ваше местоположение: @ViewBag.Location</p>*@
+<script type="text/javascript">
+    window.onload = function initialize() {
+        @*var myLatlng = new google.maps.LatLng(@ViewBag.Coords);*@
+        var myLatlng = new google.maps.LatLng("55.788648,37.3761030");
+        var myOptions = {
+            zoom: 8,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        @*var point = new google.maps.LatLng(@ViewBag.Coords);*@
+        var point = new google.maps.LatLng("55.788648,37.3761030");
+        var marker = new google.maps.Marker({
+            position: point,
+            map: map
+        });
+    }
+</script>

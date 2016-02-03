@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="web_trip_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="wpt">
+    <Key>
+      <PropertyRef Name="wpt_id" />
+    </Key>
+    <Property Name="wpt_id" Type="int" Nullable="false" />
+    <Property Name="wpt_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="web_trip_dbModelStoreContainer">
+    <EntitySet Name="wpt" EntityType="Self.wpt" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

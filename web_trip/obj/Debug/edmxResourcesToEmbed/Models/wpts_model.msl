@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="web_trip_dbModelStoreContainer" CdmEntityContainer="web_trip_dbEntities">
+    <EntitySetMapping Name="wpts">
+      <EntityTypeMapping TypeName="web_trip_dbModel.wpt">
+        <MappingFragment StoreEntitySet="wpt">
+          <ScalarProperty Name="wpt_id" ColumnName="wpt_id" />
+          <ScalarProperty Name="wpt_name" ColumnName="wpt_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
